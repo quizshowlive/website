@@ -23,21 +23,12 @@
       top: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.8);
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 1000;
+      justify-content: center;
       flex-wrap: wrap;
-    }
-
-    .logo-thumb {
-      height: 40px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
+      gap: 1.5rem;
+      z-index: 1000;
     }
 
     nav a {
@@ -61,13 +52,17 @@
       align-items: center;
       text-align: center;
       padding: 6rem 1rem 2rem;
+      position: relative;
     }
 
-    .question-bubble img, .answer-bubble img {
-      width: 100%;
-      max-width: 700px;
-      display: block;
-      margin: 1.5rem auto;
+    .question-bg {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.2;
+      z-index: 0;
+      max-width: 90%;
     }
 
     h1 {
@@ -76,12 +71,16 @@
       color: #00ffff;
       text-shadow: 0 0 10px #00ffff;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .button {
@@ -96,6 +95,8 @@
       cursor: pointer;
       box-shadow: 0 0 20px #00ffff;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
     }
 
     .button:hover {
@@ -149,19 +150,7 @@
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .logo-thumb {
-        height: 30px;
-        margin-bottom: 0.5rem;
-      }
-
-      .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-        align-items: flex-start;
+        align-items: center;
       }
 
       h1 {
@@ -171,31 +160,28 @@
       .button {
         font-size: 1rem;
       }
+
+      .question-bg {
+        max-width: 100%;
+        top: 50%;
+      }
     }
   </style>
 </head>
 <body>
   <nav>
-    <img src="QSL_Logo_Icon.svg" alt="Logo" class="logo-thumb">
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#games">Games</a>
-      <a href="#videos">Videos</a>
-      <a href="#booking">Booking</a>
-      <a href="#testimonials">Testimonials</a>
-    </div>
+    <a href="#about">About</a>
+    <a href="#games">Games</a>
+    <a href="#videos">Videos</a>
+    <a href="#booking">Booking</a>
+    <a href="#testimonials">Testimonials</a>
   </nav>
 
   <header>
+    <img src="QSL_QuestionBubble.png" alt="Question Bubble Background" class="question-bg">
     <h1>Quiz Show Live</h1>
     <p>The ultimate live game show experience — where your guests become the stars.</p>
     <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
-    <div class="question-bubble">
-      <img src="QSL_QuestionBubble.png" alt="Question Bubble">
-    </div>
-    <div class="answer-bubble">
-      <img src="QSL_AnswerBubble.png" alt="Answer Bubble">
-    </div>
   </header>
 
   <section id="videos">
@@ -211,7 +197,7 @@
     <form>
       <input type="text" placeholder="Your Name" required>
       <input type="email" placeholder="Your Email" required>
-      <select>
+      <select required>
         <option value="" disabled selected>Select Event Type</option>
         <option>Corporate</option>
         <option>Conference</option>
