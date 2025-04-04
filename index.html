@@ -23,11 +23,21 @@
       top: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.8);
-      padding: 1rem 2rem;
+      padding: 0.5rem 1rem;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
       z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo-thumb {
+      height: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
     }
 
     nav a {
@@ -35,7 +45,7 @@
       text-decoration: none;
       font-weight: bold;
       font-family: 'Oswald', sans-serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       transition: color 0.3s ease;
     }
 
@@ -53,15 +63,11 @@
       padding: 6rem 1rem 2rem;
     }
 
-    .question-bubble, .answer-bubble {
-      max-width: 90%;
-      margin: 1.5rem auto;
-    }
-
     .question-bubble img, .answer-bubble img {
       width: 100%;
       max-width: 700px;
       display: block;
+      margin: 1.5rem auto;
     }
 
     h1 {
@@ -97,11 +103,65 @@
       box-shadow: 0 0 30px #00bcd4;
     }
 
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+    }
+
+    section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    input, textarea, select {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .video-gallery iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial {
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        align-items: flex-start;
+      }
+
+      .logo-thumb {
+        height: 30px;
+        margin-bottom: 0.5rem;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+        align-items: flex-start;
       }
 
       h1 {
@@ -116,25 +176,58 @@
 </head>
 <body>
   <nav>
-    <a href="#about">About</a>
-    <a href="#games">Games</a>
-    <a href="#booking">Booking</a>
+    <img src="QSL_Logo_Icon.svg" alt="Logo" class="logo-thumb">
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#games">Games</a>
+      <a href="#videos">Videos</a>
+      <a href="#booking">Booking</a>
+      <a href="#testimonials">Testimonials</a>
+    </div>
   </nav>
 
   <header>
     <h1>Quiz Show Live</h1>
     <p>The ultimate live game show experience — where your guests become the stars.</p>
-    <button class="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
-
+    <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
     <div class="question-bubble">
-      <img src="QSL_QuestionBubble.png" alt="Question Bubble" />
+      <img src="QSL_QuestionBubble.png" alt="Question Bubble">
     </div>
-
     <div class="answer-bubble">
-      <img src="QSL_AnswerBubble.png" alt="Answer Bubble" />
+      <img src="QSL_AnswerBubble.png" alt="Answer Bubble">
     </div>
   </header>
 
-  <!-- More sections coming soon -->
+  <section id="videos">
+    <h2>Watch the Show</h2>
+    <div class="video-gallery">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/3GwjfUFyY6M" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>Book the Show</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <select>
+        <option value="" disabled selected>Select Event Type</option>
+        <option>Corporate</option>
+        <option>Conference</option>
+        <option>Party</option>
+        <option>Other</option>
+      </select>
+      <textarea rows="4" placeholder="Tell us about your event..." required></textarea>
+      <button class="button" type="submit">Submit Booking</button>
+    </form>
+  </section>
+
+  <section id="testimonials">
+    <h2>What People Are Saying</h2>
+    <div class="testimonial">“It was the highlight of our conference! Everyone's still talking about it.” – Event Manager, TechCon</div>
+    <div class="testimonial">“Like being on a real game show. The energy was unreal!” – HR Lead, Fortune 500 Company</div>
+    <div class="testimonial">“Fun, fast, and professional from start to finish. Highly recommend.” – Producer, Live Events Agency</div>
+  </section>
 </body>
 </html>
