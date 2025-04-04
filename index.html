@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Show Live</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      color: #ffffff;
+      background: url('QSL_TronBG.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ff00ff;
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1rem 2rem;
+    }
+
+    .question-bubble, .answer-bubble {
+      max-width: 90%;
+      margin: 1.5rem auto;
+    }
+
+    .question-bubble img, .answer-bubble img {
+      width: 100%;
+      max-width: 700px;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3.5rem;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .button {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #00ffff;
+      color: #111;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00ffff;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #00bcd4;
+      box-shadow: 0 0 30px #00bcd4;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#games">Games</a>
+    <a href="#booking">Booking</a>
+  </nav>
+
+  <header>
+    <h1>Quiz Show Live</h1>
+    <p>The ultimate live game show experience — where your guests become the stars.</p>
+    <button class="button" onclick="document.getElementById('about').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
+
+    <div class="question-bubble">
+      <img src="QSL_QuestionBubble.png" alt="Question Bubble" />
+    </div>
+
+    <div class="answer-bubble">
+      <img src="QSL_AnswerBubble.png" alt="Answer Bubble" />
+    </div>
+  </header>
+
+  <!-- More sections coming soon -->
+</body>
+</html>
