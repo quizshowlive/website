@@ -45,6 +45,7 @@
     }
 
     header {
+      position: relative;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -52,19 +53,8 @@
       align-items: center;
       text-align: center;
       padding: 6rem 1rem 2rem;
-      position: relative;
-    }
-
-    .question-bg {
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      width: 90%;
-      max-width: 600px;
-      transform: translate(-50%, -50%);
-      opacity: 0.25;
-      filter: blur(2px) brightness(1.1);
-      z-index: 0;
+      background: url('QSL_QuestionBubble.png') no-repeat center 35%;
+      background-size: contain;
     }
 
     h1 {
@@ -163,9 +153,9 @@
         font-size: 1rem;
       }
 
-      .question-bg {
-        max-width: 100%;
-        top: 45%;
+      header {
+        background-position: center 40%;
+        background-size: 95%;
       }
     }
   </style>
@@ -180,7 +170,6 @@
   </nav>
 
   <header>
-    <img src="QSL_QuestionBubble.png" alt="Question Bubble Background" class="question-bg">
     <h1>Quiz Show Live</h1>
     <p>The ultimate live game show experience — where your guests become the stars.</p>
     <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
