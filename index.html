@@ -72,23 +72,13 @@
       z-index: 0;
     }
 
-    .hero-content {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-      z-index: 1;
-    }
-
-    .hero-text {
-      max-width: 600px;
-    }
-
-    .logo-thumb {
-      width: 100px;
+    .qsl-logo-full {
+      width: 300px;
+      max-width: 80%;
       height: auto;
+      margin-bottom: 1.5rem;
+      z-index: 1;
+      position: relative;
       filter: drop-shadow(0 0 10px #00ffff);
     }
 
@@ -191,10 +181,6 @@
         align-items: center;
       }
 
-      .hero-content {
-        flex-direction: column;
-      }
-
       h1 {
         font-size: 2.5rem;
       }
@@ -221,14 +207,10 @@
 
   <header>
     <div class="bubble-bg"></div>
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Quiz Show Live</h1>
-        <p>The ultimate live game show experience — where your guests become the stars.</p>
-        <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
-      </div>
-      <img src="QSL_Logo_Icon.svg" alt="QSL Logo" class="logo-thumb">
-    </div>
+    <img src="QSL_Logo_Full.png" alt="Quiz Show Live Logo" class="qsl-logo-full">
+    <h1>Quiz Show Live</h1>
+    <p>The ultimate live game show experience — where your guests become the stars.</p>
+    <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
   </header>
 
   <section id="about">
