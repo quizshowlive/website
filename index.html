@@ -72,6 +72,26 @@
       z-index: 0;
     }
 
+    .hero-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      z-index: 1;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .logo-thumb {
+      width: 100px;
+      height: auto;
+      filter: drop-shadow(0 0 10px #00ffff);
+    }
+
     h1, h2, p, .button, .testimonial, section {
       opacity: 0;
       transform: translateY(30px);
@@ -96,16 +116,11 @@
       color: #00ffff;
       text-shadow: 0 0 10px #00ffff;
       margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
     }
 
     p {
       font-size: 1.2rem;
-      max-width: 600px;
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
     }
 
     .button {
@@ -120,8 +135,6 @@
       cursor: pointer;
       box-shadow: 0 0 20px #00ffff;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      z-index: 1;
     }
 
     .button:hover {
@@ -178,6 +191,10 @@
         align-items: center;
       }
 
+      .hero-content {
+        flex-direction: column;
+      }
+
       h1 {
         font-size: 2.5rem;
       }
@@ -204,9 +221,14 @@
 
   <header>
     <div class="bubble-bg"></div>
-    <h1>Quiz Show Live</h1>
-    <p>The ultimate live game show experience — where your guests become the stars.</p>
-    <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Quiz Show Live</h1>
+        <p>The ultimate live game show experience — where your guests become the stars.</p>
+        <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
+      </div>
+      <img src="QSL_Logo_Icon.svg" alt="QSL Logo" class="logo-thumb">
+    </div>
   </header>
 
   <section id="about">
@@ -245,5 +267,19 @@
     <div class="testimonial">“Like being on a real game show. The energy was unreal!” – HR Lead, Fortune 500 Company</div>
     <div class="testimonial">“Fun, fast, and professional from start to finish. Highly recommend.” – Producer, Live Events Agency</div>
   </section>
+
+  <audio id="ding-sound" preload="auto">
+    <source src="ding.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const button = document.querySelector('.button');
+    const ding = document.getElementById('ding-sound');
+
+    button.addEventListener('click', () => {
+      ding.currentTime = 0;
+      ding.play();
+    });
+  </script>
 </body>
 </html>
