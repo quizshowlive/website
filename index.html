@@ -10,6 +10,7 @@
             display: block;
             margin: 0; /* Removes any margin around the image */
             padding: 0; /* Removes any padding around the image */
+            width: 200px; /* Set the desired width for the logo */
         }
 
         /* Header styling */
@@ -26,7 +27,7 @@
 
         /* Text section styling */
         .text-section {
-            margin-top: 10px; /* Adjusted for the new layout */
+            margin-top: 20px; /* Adjusted for the new layout */
         }
 
         /* Add any other styles for your content here */
@@ -64,14 +65,49 @@
         .content {
             padding: 50px 20px;
         }
+
+        /* Navigation bar styling */
+        nav {
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Footer section styling */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
 
+    <!-- Header Section -->
     <div class="header">
         <img src="path_to_your_logo.png" alt="Quiz Show Live" class="logo">
     </div>
 
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Games</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <!-- Main Content Section -->
     <div class="main-content">
         <h1>Welcome to Quiz Show Live!</h1>
         <div class="text-section">
@@ -80,10 +116,16 @@
         <button class="cta-button">Join the Show</button>
     </div>
 
+    <!-- About Section -->
     <div class="content">
         <h2>About the Show</h2>
         <p>Quiz Show Live brings the energy of a game show to your next corporate event, conference, or fair. It's a customizable experience for attendees, making them the stars of the show!</p>
     </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Quiz Show Live. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
