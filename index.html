@@ -72,6 +72,24 @@
       z-index: 0;
     }
 
+    h1, h2, p, .button, .testimonial, section {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    h1 { animation-delay: 0.3s; }
+    p { animation-delay: 0.5s; }
+    .button { animation-delay: 0.7s; }
+    section { animation-delay: 0.9s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h1 {
       font-family: 'Oswald', sans-serif;
       font-size: 3.5rem;
@@ -179,7 +197,6 @@
 <body>
   <nav>
     <a href="#about">About</a>
-    <a href="#games">Games</a>
     <a href="#videos">Videos</a>
     <a href="#booking">Booking</a>
     <a href="#testimonials">Testimonials</a>
@@ -191,6 +208,11 @@
     <p>The ultimate live game show experience — where your guests become the stars.</p>
     <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
   </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>Quiz Show Live puts your attendees center stage — transforming them into contestants in a high-energy game show created by veteran TV producers who’ve worked on all your favorite classics.</p>
+  </section>
 
   <section id="videos">
     <h2>Watch the Show</h2>
