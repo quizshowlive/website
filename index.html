@@ -23,7 +23,7 @@
       top: 0;
       width: 100%;
       background: rgba(0, 0, 0, 0.8);
-      padding: 0rem 0rem;
+      padding: 0rem;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -37,11 +37,12 @@
       font-weight: bold;
       font-family: 'Oswald', sans-serif;
       font-size: 1.3rem;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
     }
 
     nav a:hover {
       color: #ff00ff;
+      transform: scale(1.1);
     }
 
     header {
@@ -80,6 +81,13 @@
       z-index: 1;
       position: relative;
       filter: drop-shadow(0 0 10px #00ffff);
+      animation: pulse 2.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
     }
 
     h1, h2, p, .button, .testimonial, section {
@@ -124,12 +132,13 @@
       font-weight: bold;
       cursor: pointer;
       box-shadow: 0 0 20px #00ffff;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     }
 
     .button:hover {
       background-color: #00bcd4;
       box-shadow: 0 0 30px #00bcd4;
+      transform: scale(1.05);
     }
 
     section {
@@ -173,6 +182,11 @@
     .testimonial {
       margin-bottom: 2rem;
       font-style: italic;
+      display: none;
+    }
+
+    .testimonial.active {
+      display: block;
     }
 
     @media (max-width: 768px) {
@@ -245,7 +259,7 @@
 
   <section id="testimonials">
     <h2>What People Are Saying</h2>
-    <div class="testimonial">“It was the highlight of our conference! Everyone's still talking about it.” – Event Manager, TechCon</div>
+    <div class="testimonial active">“It was the highlight of our conference! Everyone's still talking about it.” – Event Manager, TechCon</div>
     <div class="testimonial">“Like being on a real game show. The energy was unreal!” – HR Lead, Fortune 500 Company</div>
     <div class="testimonial">“Fun, fast, and professional from start to finish. Highly recommend.” – Producer, Live Events Agency</div>
   </section>
@@ -262,6 +276,11 @@
       ding.currentTime = 0;
       ding.play();
     });
-  </script>
-</body>
-</html>
+
+    const testimonials = document.querySelectorAll('.testimonial');
+    let currentTestimonial = 0;
+
+    setInterval(() => {
+      testimonials[currentTestimonial].classList.remove('active');
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      testimonials[currentTestimonial].classList.add('active');
