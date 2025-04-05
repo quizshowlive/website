@@ -110,6 +110,70 @@
       background-color: #00bcd4;
       box-shadow: 0 0 30px #00bcd4;
     }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 12px;
+    }
+
+    section h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.5rem;
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    input, textarea, select {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .video-gallery iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial {
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .button {
+        font-size: 1rem;
+      }
+
+      .bubble-bg {
+        width: 90%;
+        height: 300px;
+        top: 50%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,6 +191,37 @@
     <p>The ultimate live game show experience — where your guests become the stars.</p>
     <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
   </header>
+
+  <section id="videos">
+    <h2>Watch the Show</h2>
+    <div class="video-gallery">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/3GwjfUFyY6M" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="booking">
+    <h2>Book the Show</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <select required>
+        <option value="" disabled selected>Select Event Type</option>
+        <option>Corporate</option>
+        <option>Conference</option>
+        <option>Party</option>
+        <option>Other</option>
+      </select>
+      <textarea rows="4" placeholder="Tell us about your event..." required></textarea>
+      <button class="button" type="submit">Submit Booking</button>
+    </form>
+  </section>
+
+  <section id="testimonials">
+    <h2>What People Are Saying</h2>
+    <div class="testimonial">“It was the highlight of our conference! Everyone's still talking about it.” – Event Manager, TechCon</div>
+    <div class="testimonial">“Like being on a real game show. The energy was unreal!” – HR Lead, Fortune 500 Company</div>
+    <div class="testimonial">“Fun, fast, and professional from start to finish. Highly recommend.” – Producer, Live Events Agency</div>
+  </section>
 </body>
 </html>
-
