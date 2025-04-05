@@ -213,6 +213,29 @@
         top: 50%;
       }
     }
+      .testimonial-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-nav button {
+      background: none;
+      border: 2px solid #00ffff;
+      color: #00ffff;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .testimonial-nav button:hover {
+      background-color: rgba(0, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
   </style>
 </head>
 <body>
@@ -226,7 +249,6 @@
   <header>
     <div class="bubble-bg"></div>
     <img src="QSL_Logo_Full.png" alt="Quiz Show Live Logo" class="qsl-logo-full">
-    <h1>Quiz Show Live</h1>
     <p>The ultimate live game show experience — where your guests become the stars.</p>
     <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
   </header>
@@ -261,8 +283,10 @@
     </form>
   </section>
 
-  <section id="testimonials">
-    <h2>What People Are Saying</h2>
+  <section id="testimonials">$1<div class="testimonial-nav">
+      <button onclick="prevTestimonial()">←</button>
+      <button onclick="nextTestimonial()">→</button>
+    </div>
     <div class="testimonial active">“It was the highlight of our conference! Everyone's still talking about it.” – Event Manager, TechCon</div>
     <div class="testimonial">“Like being on a real game show. The energy was unreal!” – HR Lead, Fortune 500 Company</div>
     <div class="testimonial">“Fun, fast, and professional from start to finish. Highly recommend.” – Producer, Live Events Agency</div>
@@ -289,6 +313,18 @@
       currentTestimonial = (currentTestimonial + 1) % testimonials.length;
       testimonials[currentTestimonial].classList.add('active');
     }, 4000);
+  
+    function nextTestimonial() {
+      testimonials[currentTestimonial].classList.remove('active');
+      currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+      testimonials[currentTestimonial].classList.add('active');
+    }
+
+    function prevTestimonial() {
+      testimonials[currentTestimonial].classList.remove('active');
+      currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+      testimonials[currentTestimonial].classList.add('active');
+    }
   </script>
 </body>
 </html>
