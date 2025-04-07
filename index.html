@@ -46,17 +46,18 @@
       transform: scale(1.1);
     }
 
-    header {
-      position: relative;
-      min-height: 120vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 1rem;
-      overflow: hidden;
-    }
+header {
+  position: relative;
+  min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Changed from center */
+  align-items: center;
+  text-align: center;
+  padding: 12rem 1rem 2rem; /* Top padding pushes tagline down */
+  overflow: hidden;
+}
+
 
     .bubble-bg {
       position: absolute;
