@@ -14,10 +14,9 @@
       margin: 0;
       font-family: 'Fredoka', sans-serif;
       color: #ffffff;
-      background: url('QSL_HypePromo_v3.png') no-repeat center center fixed;
+      background: url('QSL_HypePromo_v3.png') no-repeat center top fixed;
       background-size: 90%;
       background-repeat: no-repeat;
-      background-position: center top;
     }
 
     nav {
@@ -58,6 +57,8 @@
       padding: 1rem 1rem 1rem;
       overflow: hidden;
     }
+
+    .bubble-bg {
       position: absolute;
       top: 42%;
       left: 50%;
@@ -73,23 +74,6 @@
       z-index: 0;
     }
 
-    .qsl-logo-full {
-      width: 450px;
-      max-width: 90%;
-      height: auto;
-      margin-bottom: -1rem;
-      z-index: 1;
-      position: relative;
-      filter: drop-shadow(0 0 10px #00ffff);
-      animation: pulse 2.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-      100% { transform: scale(1); }
-    }
-
     h1, h2, p, .button, .testimonial, section {
       padding: 2.5rem 2rem 3rem;
       max-width: 900px;
@@ -97,18 +81,6 @@
       text-align: center;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 12px;
-    }
-
-    h1 { animation-delay: 0.3s; }
-    p { animation-delay: 0.5s; }
-    .button { animation-delay: 0.7s; }
-    section { animation-delay: 0.9s; }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     h1 {
@@ -213,7 +185,8 @@
         top: 50%;
       }
     }
-      .testimonial-nav {
+
+    .testimonial-nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
@@ -236,12 +209,12 @@
       transform: scale(1.1);
     }
 
-      .hero-tagline {
+    .hero-tagline {
       font-size: 1.5rem;
       color: #00ffff;
       text-shadow: 0 0 8px #00ffff;
+      margin-top: 2rem;
     }
-
   </style>
 </head>
 <body>
@@ -254,7 +227,7 @@
 
   <header>
     <div class="bubble-bg"></div>
-    <img src="QSL_Logo_Full.png" alt="Quiz Show Live Logo" class="qsl-logo-full">
+    <!-- Logo removed -->
     <p class="hero-tagline">The ultimate live game show experience — where your guests become the stars.</p>
     <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
   </header>
@@ -290,7 +263,7 @@
   </section>
 
   <section id="testimonials">
-    <div class="testimonial">“It was the highlight of our conference! Everyone's still talking about it.” – Event Manager, TechCon</div>
+    <div class="testimonial active">“It was the highlight of our conference! Everyone's still talking about it.” – Event Manager, TechCon</div>
     <div class="testimonial">“Like being on a real game show. The energy was unreal!” – HR Lead, Fortune 500 Company</div>
     <div class="testimonial">“Fun, fast, and professional from start to finish. Highly recommend.” – Producer, Live Events Agency</div>
   </section>
@@ -311,12 +284,11 @@
     const testimonials = document.querySelectorAll('.testimonial');
     let currentTestimonial = 0;
 
-    
+    setInterval(() => {
+      testimonials.forEach(t => t.classList.remove('active'));
       currentTestimonial = (currentTestimonial + 1) % testimonials.length;
       testimonials[currentTestimonial].classList.add('active');
     }, 4000);
-  
-    
-      </script>
+  </script>
 </body>
 </html>
