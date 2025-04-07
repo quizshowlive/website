@@ -54,7 +54,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 1rem 1rem 1rem;
+      padding: 1rem;
       overflow: hidden;
     }
 
@@ -74,47 +74,48 @@
       z-index: 0;
     }
 
-    h1, h2, p, .button, .testimonial, section {
-      padding: 2.5rem 2rem 3rem;
-      max-width: 900px;
-      margin: 0 auto 3rem;
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.5);
-      border-radius: 12px;
-    }
-
-    h1 {
+    .hero-tagline {
+      font-size: 2rem;
+      max-width: 700px;
       font-family: 'Oswald', sans-serif;
-      font-size: 3.5rem;
       color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-      margin-top: 0rem;
-      margin-bottom: 1rem;
+      text-transform: uppercase;
+      text-align: center;
+      text-shadow: 0 0 8px #00ffff, 0 0 20px #00ffff;
+      margin-top: 2rem;
+      animation: popIn 1.5s ease-out forwards;
+      opacity: 0;
     }
 
-    p {
-      font-size: 1.2rem;
-      margin: 0 auto;
-    }
-
-    .button {
-      margin-top: 1.5rem;
-      padding: 1rem 2rem;
-      background-color: #00ffff;
-      color: #111;
-      border: none;
-      border-radius: 10px;
-      font-size: 1.1rem;
+    .hero-tagline .highlight {
+      color: #ff00ff;
+      text-shadow: 0 0 12px #ff00ff;
       font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 20px #00ffff;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      animation: shimmer 2s infinite alternate;
     }
 
-    .button:hover {
-      background-color: #00bcd4;
-      box-shadow: 0 0 30px #00bcd4;
-      transform: scale(1.05);
+    @keyframes popIn {
+      0% {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes shimmer {
+      from {
+        text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+      }
+      to {
+        text-shadow: 0 0 15px #ffffff, 0 0 30px #ff00ff;
+      }
     }
 
     section {
@@ -126,11 +127,42 @@
       border-radius: 12px;
     }
 
-    section h2 {
+    section h2,
+    section p,
+    section .button {
+      background: none;
+      padding: 0;
+      margin: 0 auto 1rem;
+    }
+
+    h2 {
       font-family: 'Oswald', sans-serif;
       font-size: 2.5rem;
       color: #00ffff;
-      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .button {
+      padding: 1rem 2rem;
+      background-color: #00ffff;
+      color: #111;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00ffff;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      margin-top: 1.5rem;
+    }
+
+    .button:hover {
+      background-color: #00bcd4;
+      box-shadow: 0 0 30px #00bcd4;
+      transform: scale(1.05);
     }
 
     form {
@@ -165,27 +197,6 @@
       display: block;
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      h1 {
-        font-size: 2.5rem;
-      }
-
-      .button {
-        font-size: 1rem;
-      }
-
-      .bubble-bg {
-        width: 90%;
-        height: 300px;
-        top: 50%;
-      }
-    }
-
     .testimonial-nav {
       display: flex;
       justify-content: center;
@@ -209,11 +220,25 @@
       transform: scale(1.1);
     }
 
-    .hero-tagline {
-      font-size: 1.5rem;
-      color: #00ffff;
-      text-shadow: 0 0 8px #00ffff;
-      margin-top: 2rem;
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-tagline {
+        font-size: 1.5rem;
+      }
+
+      .button {
+        font-size: 1rem;
+      }
+
+      .bubble-bg {
+        width: 90%;
+        height: 300px;
+        top: 50%;
+      }
     }
   </style>
 </head>
@@ -227,8 +252,9 @@
 
   <header>
     <div class="bubble-bg"></div>
-    <!-- Logo removed -->
-    <p class="hero-tagline">The ultimate live game show experience — where your guests become the stars.</p>
+    <p class="hero-tagline">
+      The ultimate <span class="highlight">live game show</span> experience — where your guests become the <span class="highlight">stars</span>.
+    </p>
     <button class="button" onclick="document.getElementById('booking').scrollIntoView({ behavior: 'smooth' })">Let's Play!</button>
   </header>
 
