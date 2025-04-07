@@ -46,25 +46,28 @@
       transform: scale(1.1);
     }
 
-header {
-  position: relative;
-  min-height: 120vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end; /* Align content to the bottom */
-  align-items: center;
-  text-align: center;
-  padding: 2rem 1rem 6rem; /* Bottom padding for breathing room */
-  overflow: hidden;
-}
+    header {
+      position: relative;
+      min-height: 120vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      overflow: hidden;
+    }
 
+    .spacer {
+      height: 500px; /* Adjust if needed for your layout */
+    }
 
     .bubble-bg {
       position: absolute;
       top: 42%;
       left: 50%;
       width: 600px;
-      max-width: 100%;
+      max-width: 90%;
       max-height: 400px;
       height: auto;
       transform: translate(-50%, -50%);
@@ -83,7 +86,7 @@ header {
       text-transform: uppercase;
       text-align: center;
       text-shadow: 0 0 8px #00ffff, 0 0 20px #00ffff;
-      margin-top: 3rem;
+      margin-top: 2rem;
       animation: popIn 1.5s ease-out forwards;
       opacity: 0;
     }
@@ -240,6 +243,10 @@ header {
         height: 300px;
         top: 50%;
       }
+
+      .spacer {
+        height: 300px;
+      }
     }
   </style>
 </head>
@@ -253,6 +260,7 @@ header {
 
   <header>
     <div class="bubble-bg"></div>
+    <div class="spacer"></div>
     <p class="hero-tagline">
       The ultimate <span class="highlight">live game show</span> experience — where your guests become the <span class="highlight">stars</span>.
     </p>
